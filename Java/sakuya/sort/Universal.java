@@ -5,16 +5,16 @@ import java.util.List;
 /**
  * @author chenyuanqiao
  * @date 2021/3/24
- * 使用抽象类的方式实现
+ * 使用接口的方式实现
  */
-public abstract class UniversalComparator<T, K> {
+public interface Universal<T, K> {
 
     /**
      * 智能排序
      * @param o1List 需要排序的对象列表
      * @param o2List 排序字段列表
      * */
-    public void sort(List<T> o1List, List<K> o2List){
+    default void sort(List<T> o1List, List<K> o2List){
         int count = o1List.size();
         int end = o1List.size() - 1;
         int i = 0;
@@ -40,8 +40,11 @@ public abstract class UniversalComparator<T, K> {
     }
     /**
      * 交换列表中属性
+     * @param index1 坐标1
+     * @param index2 坐标2
+     * @param o1List 需要交换的列表
      * */
-    public void swap(Integer index1, Integer index2, List<T> o1List){
+    default void swap(Integer index1, Integer index2, List<T> o1List){
         T o1 = o1List.get(index1);
         o1List.set(index1, o1List.get(index2));
         o1List.set(index2, o1);
