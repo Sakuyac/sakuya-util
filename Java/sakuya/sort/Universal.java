@@ -56,5 +56,5 @@ public interface Universal<T, K> {
      * @param o2 对象
      * @return true false
      * */
-    public abstract boolean compare(T o1, K o2);
+    boolean compare(T o1, K o2);
 }
